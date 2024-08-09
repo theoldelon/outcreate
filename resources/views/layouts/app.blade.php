@@ -139,24 +139,23 @@
                     <span>OutCreate</span>
                 </a>
             </div>
-
+    
             @auth
             <!-- Navigation Links -->
             <div class="hidden md:flex space-x-6 font-semibold">
-                <a href="{{ url('/jobs') }}" class="text-white hover:text-gray-300">Browse Job</a>
-                <a href="{{ url('/services') }}" class="text-white hover:text-gray-300">Services</a> 
-                <a href="#" class="text-white hover:text-gray-300">Pages <i class="ti-angle-down"></i></a>
-                <a href="#" class="text-white hover:text-gray-300">Blog <i class="ti-angle-down"></i></a>
-                <a href="{{ url('/contact') }}" class="text-white hover:text-gray-300">Contact</a>
+                <a href="{{ url('/jobs') }}" class="{{ request()->is('jobs*') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300">Browse Job</a>
+                <a href="{{ url('/services') }}" class="{{ request()->is('services*') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300">Services</a> 
+                <a href="#" class="{{ request()->is('pages*') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300">Pages <i class="ti-angle-down"></i></a>
+                <a href="#" class="{{ request()->is('blog*') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300">Blog <i class="ti-angle-down"></i></a>
+                <a href="{{ url('/contact') }}" class="{{ request()->is('contact') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300">Contact</a>
             </div>
             @else
             <div class="hidden md:flex space-x-6 font-semibold">
-                <a href="{{ url('/') }}" class="text-white hover:text-gray-300">Home</a>
-                <a href="{{ url('/jobs') }}" class="text-white hover:text-gray-300">Browse Job</a>
-                <a href="{{ url('/services') }}" class="text-white hover:text-gray-300">Services</a> 
-                <a href="#" class="text-white hover:text-gray-300">Pages <i class="ti-angle-down"></i></a>
-                <a href="#" class="text-white hover:text-gray-300">Blog <i class="ti-angle-down"></i></a>
-                <a href="{{ url('/contact') }}" class="text-white hover:text-gray-300">Contact</a>
+                <a href="{{ url('/jobs') }}" class="{{ request()->is('jobs*') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300">Browse Job</a>
+                <a href="{{ url('/services') }}" class="{{ request()->is('services*') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300">Services</a> 
+                <a href="#" class="{{ request()->is('pages*') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300">Pages <i class="ti-angle-down"></i></a>
+                <a href="#" class="{{ request()->is('blog*') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300">Blog <i class="ti-angle-down"></i></a>
+                <a href="{{ url('/contact') }}" class="{{ request()->is('contact') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300">Contact</a>
             </div>
             @endauth
             
@@ -211,6 +210,7 @@
             </div>
         </div>
     </nav>
+    
     
     <!-- Main Content -->
     <main>

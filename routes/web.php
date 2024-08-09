@@ -33,6 +33,11 @@ Route::get('/manage-listings', function () {
     return view('dashboards.manage');
 })->name('manage');
 
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+
+
 /////////authenticated////////////////
 
 Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index');

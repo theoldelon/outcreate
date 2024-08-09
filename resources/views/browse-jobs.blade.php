@@ -32,11 +32,18 @@
             <!-- Jobs List -->
             <ul class="space-y-4">
                 <!-- Example Job Listing 1 -->
-                <li class="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl duration-300">
-                    <a href="#" class="block text-2xl font-semibold text-primary hover:underline">
+                <a href="#" class="block bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl duration-300">
+                    <div class="flex items-center mb-4">
+                        <img src="{{ asset('images/unggoy.jpg') }}" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="font-semibold text-gray-800">Lee Goy</p>
+                            <p class="text-gray-600 text-sm">Tech Innovations</p>
+                        </div>
+                    </div>
+                    <img src="{{ asset('images/Home.jpg') }}" alt="Senior Frontend Developer" class="w-full h-40 object-cover rounded-lg mb-4">
+                    <p class="block text-2xl font-semibold text-primary">
                         Senior Frontend Developer
-                    </a>
-                    <p class="text-gray-600 mt-2">Tech Innovations</p>
+                    </p>
                     <p class="text-gray-600 mt-2">Remote</p>
                     <p class="text-gray-600 mt-2">Web Development</p>
                     <div class="mt-4 flex items-center space-x-4">
@@ -44,14 +51,21 @@
                         <span class="text-gray-500 text-sm">Aug 01, 2024</span>
                     </div>
                     <p class="mt-4">We are looking for a skilled Senior Frontend Developer with experience in React and Tailwind CSS to join our team and work on innovative projects.</p>
-                </li>
-    
+                </a>
+
                 <!-- Example Job Listing 2 -->
-                <li class="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl duration-300">
-                    <a href="#" class="block text-2xl font-semibold text-primary hover:underline">
+                <a href="#" class="block bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl duration-300">
+                    <div class="flex items-center mb-4">
+                        <img src="{{ asset('images/profile2.jpg') }}" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="font-semibold text-gray-800">Jane Smith</p>
+                            <p class="text-gray-600 text-sm">Creative Agency</p>
+                        </div>
+                    </div>
+                    <img src="{{ asset('images/job2.jpg') }}" alt="Graphic Designer" class="w-full h-40 object-cover rounded-lg mb-4">
+                    <p class="block text-2xl font-semibold text-primary">
                         Graphic Designer
-                    </a>
-                    <p class="text-gray-600 mt-2">Creative Agency</p>
+                    </p>
                     <p class="text-gray-600 mt-2">New York</p>
                     <p class="text-gray-600 mt-2">Design</p>
                     <div class="mt-4 flex items-center space-x-4">
@@ -59,14 +73,21 @@
                         <span class="text-gray-500 text-sm">Jul 29, 2024</span>
                     </div>
                     <p class="mt-4">Join our team as a Graphic Designer and contribute to creative projects with your design skills. Experience with Adobe Creative Suite is a must.</p>
-                </li>
-    
+                </a>
+
                 <!-- Example Job Listing 3 -->
-                <li class="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl duration-300">
-                    <a href="#" class="block text-2xl font-semibold text-primary hover:underline">
+                <a href="#" class="block bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl duration-300">
+                    <div class="flex items-center mb-4">
+                        <img src="{{ asset('images/profile3.jpg') }}" alt="Profile" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <p class="font-semibold text-gray-800">Mike Johnson</p>
+                            <p class="text-gray-600 text-sm">Marketing Experts</p>
+                        </div>
+                    </div>
+                    <img src="{{ asset('images/job3.jpg') }}" alt="Digital Marketer" class="w-full h-40 object-cover rounded-lg mb-4">
+                    <p class="block text-2xl font-semibold text-primary">
                         Digital Marketer
-                    </a>
-                    <p class="text-gray-600 mt-2">Marketing Experts</p>
+                    </p>
                     <p class="text-gray-600 mt-2">Boston</p>
                     <p class="text-gray-600 mt-2">Marketing</p>
                     <div class="mt-4 flex items-center space-x-4">
@@ -74,24 +95,11 @@
                         <span class="text-gray-500 text-sm">Jul 25, 2024</span>
                     </div>
                     <p class="mt-4">We are seeking a Digital Marketer to develop and execute marketing strategies. Experience with SEO, PPC, and content marketing is required.</p>
-                </li>
+                </a>
             </ul>     
         </main>
     </div>
 @endsection
 
 @section('scripts')
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const sidebarToggle = document.getElementById('sidebarToggle');
-            const sidebar = document.getElementById('sidebar');
-
-            if (sidebarToggle && sidebar) {
-                sidebarToggle.addEventListener('click', function() {
-                    sidebar.classList.toggle('-translate-x-full');
-                    sidebar.classList.toggle('translate-x-0');
-                });
-            }
-        });
-    </script>
 @endsection
