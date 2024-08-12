@@ -14,57 +14,83 @@
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Service 1 -->
-        <div class="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-            <h2 class="text-2xl font-semibold mb-4">Web Development</h2>
-            <p class="text-gray-700 mb-4">
-                We build custom websites that are not only visually appealing but also highly functional and user-friendly. Our web development services include front-end and back-end development, CMS integration, and more.
-            </p>
-            <a href="#" class="text-blue-500 hover:underline">Learn More</a>
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+                <img class="rounded-t-lg h-48 w-full" src="{{asset('images/web.jpg')}}" alt="" />
+            </a>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Web Designing</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+            </div>
         </div>
+
+
         
         <!-- Service 2 -->
-        <div class="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-            <h2 class="text-2xl font-semibold mb-4">Digital Marketing</h2>
-            <p class="text-gray-700 mb-4">
-                Our digital marketing services are designed to help you reach your target audience effectively. We offer SEO, PPC advertising, social media management, and content marketing strategies to boost your online presence.
-            </p>
-            <a href="#" class="text-blue-500 hover:underline">Learn More</a>
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+                <img class="rounded-t-lg h-48 w-full" src="{{asset('images/digital.jpg')}}" alt="" />
+            </a>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Digital Marketing</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+            </div>
         </div>
         
         <!-- Service 3 -->
-        <div class="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-            <h2 class="text-2xl font-semibold mb-4">Graphic Design</h2>
-            <p class="text-gray-700 mb-4">
-                Our graphic design services focus on creating stunning visuals that communicate your brand’s message. From logo design to marketing materials, we provide creative solutions that stand out.
-            </p>
-            <a href="#" class="text-blue-500 hover:underline">Learn More</a>
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+                <img class="rounded-t-lg h-48 w-full" src="{{asset('images/graphic.jpg')}}" alt="" />
+            </a>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Digital Marketing</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+            </div>
         </div>
 
         <!-- Service 4 -->
-        <div class="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-            <h2 class="text-2xl font-semibold mb-4">Consulting Services</h2>
-            <p class="text-gray-700 mb-4">
-                Our consulting services help you navigate complex business challenges and make informed decisions. We offer expertise in strategy, operations, and technology to drive your business forward.
-            </p>
-            <a href="#" class="text-blue-500 hover:underline">Learn More</a>
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+                <img class="rounded-t-lg h-48 w-full" src="{{asset('images/consulting.jpg')}}" alt="" />
+            </a>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Consulting</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+            </div>
         </div>
 
         <!-- Service 5 -->
-        <div class="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-            <h2 class="text-2xl font-semibold mb-4">Customer Support</h2>
-            <p class="text-gray-700 mb-4">
-                We provide exceptional customer support to ensure your satisfaction. Our team is available to assist with inquiries, resolve issues, and provide guidance throughout your journey with us.
-            </p>
-            <a href="#" class="text-blue-500 hover:underline">Learn More</a>
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+                <img class="rounded-t-lg h-48 w-full" src="{{asset('images/support.jpg')}}" alt="" />
+            </a>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Customer Support</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+            </div>
         </div>
         
         <!-- Service 6 -->
-        <div class="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-            <h2 class="text-2xl font-semibold mb-4">Mobile App Development</h2>
-            <p class="text-gray-700 mb-4">
-                Our mobile app development services cater to both iOS and Android platforms. We design and develop apps that provide a seamless user experience and meet your specific business requirements.
-            </p>
-            <a href="#" class="text-blue-500 hover:underline">Learn More</a>
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+                <img class="rounded-t-lg h-48 w-full" src="{{asset('images/development.jpg')}}" alt="" />
+            </a>
+            <div class="p-5">
+                <a href="#">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Mobile App Development</h5>
+                </a>
+                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+            </div>
         </div>
     </div>
 </div>

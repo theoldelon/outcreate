@@ -5,22 +5,33 @@
 @section('content')
 
 <!-- Hero Section -->
-<!-- Hero Section -->
-<section class="bg-gradient-to-r from-blue-900 via-blue-600 to-blue-900 h-96 flex items-center justify-center text-center text-light">
-    <div>
-        <h1 class="text-4xl font-bold leading-tight mb-4">
-            Connect with the Best Freelancers
-        </h1>
-        <p class="text-xl mb-6">
-            Find the perfect talent for your project
-        </p>
-        <div class="mb-8 space-x-4">
-            @auth
-            <a href="" class="bg-gray-900 text-light px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-300">Find a Job</a>
-            <a href="" class="bg-blue-900 text-light px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-300">Post a Job</a>
-            @else
-            <a href="{{ url('/login') }}" class="bg-blue-600 text-light px-6 py-3 rounded-lg hover:bg-blue-500 transition-colors duration-300">Login to connect!</a>
-            @endauth
+<section class="relative overflow-hidden" style="height: 600px;">
+    <!-- Video Background -->
+    <video class="absolute top-0 left-0 w-full h-full object-cover" autoplay muted loop>
+        <source src="{{ asset('images/videoCall.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Content Overlay -->
+    <div class="relative z-10 flex items-center justify-center h-full text-center">
+        <!-- Color Overlay -->
+        <div class="absolute top-0 left-0 w-full h-full bg-blue-900 bg-opacity-40"></div>
+        <!-- Content -->
+        <div class="relative p-8 bg-opacity-70 bg-blue-900 rounded-lg shadow-xl">
+            <h1 class="text-4xl font-extrabold leading-tight mb-4 text-light shadow-md">
+                Connect with the Best Freelancers
+            </h1>
+            <p class="text-xl mb-6 text-light">
+                Find the perfect talent for your project
+            </p>
+            <div class="flex justify-center space-x-4">
+                @auth
+                <a href="#" class="bg-gray-900 text-light px-6 py-3 rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-300">Find a Job</a>
+                <a href="#" class="bg-blue-900 text-light px-6 py-3 rounded-lg hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-300">Post a Job</a>
+                @else
+                <a href="{{ url('/login') }}" class="bg-blue-600 text-light px-6 py-3 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-300">Login to connect!</a>
+                @endauth
+            </div>
         </div>
     </div>
 </section>
