@@ -17,7 +17,7 @@
         <!-- Color Overlay -->
         <div class="absolute top-0 left-0 w-full h-full bg-blue-900 bg-opacity-40"></div>
         <!-- Content -->
-        <div class="relative p-8 bg-opacity-70 bg-blue-900 rounded-lg shadow-xl">
+        <div class="relative p-8 bg-opacity-70 bg-gray-900 rounded-lg shadow-xl">
             <h1 class="text-4xl font-extrabold leading-tight mb-4 text-light shadow-md">
                 Connect with the Best Freelancers
             </h1>
