@@ -1,28 +1,37 @@
 <?php
+// app/Http/Controllers/ProfileController.php
 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
+    // Display the client profile
     public function show()
     {
-        // You might want to fetch the user's profile information here
-        return view('profile.show');
+        return view('profiles.show-client'); // Ensure this matches your Blade file
     }
-        // In app/Http/Controllers/ProfileController.php
-        public function edit()
-        {
-            // Pass any necessary data to the view here
-            return view('profile.edit');
+
+    // Display the freelancer profile
+    public function showFreelancer()
+    {
+        $user = Auth::user();
+        
+        // Check if the logged-in user is a freelancer
+        if ($user->role === 'freelancer') {
+            return redirect()->route('browse-jobs');
         }
         
-        public function update(Request $request)
-        {
-            // Handle the profile update logic here
-            // For example: validate input, update user profile, etc.
-            // Redirect or return response as needed
-        }
+        return redirect()->route('home')->with('error', 'Unauthorized access.');
+    }
 
+    // Handle profile update
+    public function update(Request $request)
+    {
+        // Handle the profile update logic here
+        // For example: validate input, update user profile, etc.
+        // Redirect or return response as needed
+    }
 }

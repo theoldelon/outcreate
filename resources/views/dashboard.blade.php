@@ -4,12 +4,6 @@
 
 @section('content')
     <div class="flex">
-        <!-- Sidebar Toggle Button -->
-        <button id="sidebarToggle" class="fixed top-4 left-4 z-50 text-light p-3 rounded-lg shadow-lg hover:bg-secondary transition-colors duration-300">
-            <i class="fas fa-bars fa-lg"></i>
-        </button>
-
-        @include('components.sidebar')
 
         <!-- Main Content -->
         <main class="flex-1 p-6 ml-64 mt-24">

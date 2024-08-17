@@ -1,67 +1,32 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\JobController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\DashboardController;
 
-/////////not yet authenticated////////////////
 Route::get('/', function () {
     return view('index');
 })->name('home');
 
-Route::get('/services', function () {
-    return view('services');
-});
-Route::get('/projects', function () {
-    return view('dashboards.projects');
-})->name('projects');
-
-Route::get('/freelancers', function () {
-    return view('dashboards.freelancers');
-})->name('freelancers');
-
-Route::get('/clients', function () {
-    return view('dashboards.clients');
-})->name('clients');
-
-Route::get('/message', function () {
-    return view('dashboards.message');
-})->name('message');
-
-Route::get('/manage-listings', function () {
-    return view('dashboards.manage');
-})->name('manage');
-
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
-
-
-/////////authenticated////////////////
-
-Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index');
-
-// Dashboard route
-Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-});
-
-// Authentication routes
+// Authentication Routes
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'loginPost'])->name('login.post');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/register', [AuthController::class, 'registerPost'])->name('register.post');
+Route::post('/register/client', [AuthController::class, 'registerClient'])->name('register.client.post');
+Route::post('/register/freelancer', [AuthController::class, 'registerFreelancer'])->name('register.freelancer.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-
-//this route for viewing the profile
-
+// Authenticated Routes
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'show'])->name('profile');
-    
-    // Route to show the edit profile form
-    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('client/profile', [ProfileController::class, 'show'])->name('profile.show-client');
     Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/freelancer/profile', [ProfileController::class, 'showFreelancer'])->name('profile.show-freelancer');
 });
+
+// Job Listings Route
+Route::get('/browse-jobs', [JobController::class, 'index'])->name('browse-jobs');

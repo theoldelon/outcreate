@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mx-auto px-4 mt-24">
-
+<div class="container mx-auto px-4 mt-12">
     <!-- Navigation -->
-    <nav class="flex space-x-6 mb-6 border-b border-gray-200 pb-2">
+    <nav class="flex space-x-6 mb-8 border-b border-gray-200 pb-4">
         <a class="text-gray-600 hover:text-primary font-semibold transition duration-300" href="#">Profile</a>
         <a class="text-gray-600 hover:text-primary font-semibold transition duration-300" href="#">Billing</a>
         <a class="text-gray-600 hover:text-primary font-semibold transition duration-300" href="#">Security</a>
@@ -12,36 +11,35 @@
     </nav>
 
     <div class="flex flex-wrap -mx-4">
-        <!-- Profile Picture -->
-        <div class="w-full md:w-1/4 px-4 mb-8">
-            <div class="bg-white shadow-lg rounded-xl p-6 flex flex-col items-center">
-                <!-- Profile Picture Upload Form -->
+        <!-- Profile Picture and Upload Form -->
+        <div class="w-full md:w-1/3 px-4 mb-8">
+            <div class="bg-white shadow-xl rounded-lg p-6 flex flex-col items-center">
+                <!-- Profile Picture -->
                 <div class="relative mb-4">
-                    <img class="w-36 h-36 rounded-full border-4 border-primary" src="{{ auth()->user()->profile_picture ? asset('storage/' . auth()->user()->profile_picture) : 'http://bootdey.com/img/Content/avatar/avatar2.png' }}" alt="Profile Picture">
-                    <span class="absolute bottom-0 right-0 bg-primary rounded-full p-1">
+                    <img class="w-32 h-32 rounded-full border-4 border-primary" src="{{ auth()->user()->profile_picture ? asset('storage/' . auth()->user()->profile_picture) : 'http://bootdey.com/img/Content/avatar/avatar2.png' }}" alt="Profile Picture">
+                    <span class="absolute bottom-0 right-0 bg-primary rounded-full p-2 cursor-pointer">
                         <i class="fa-solid fa-camera text-white"></i>
                     </span>
                 </div>
-                <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ auth()->user()->name }}</h2>
+                <h2 class="text-xl font-bold text-gray-800 mb-2">{{ auth()->user()->name }}</h2>
                 <p class="text-gray-600 text-sm mb-4">{{ auth()->user()->title ?? 'Freelancer' }}</p>
                 <form action="" method="POST" enctype="multipart/form-data" class="w-full">
                     @csrf
                     @method('PUT')
-                    <input class="form-control mb-3 border-gray-300 rounded-md shadow-sm h-12 focus:ring-primary focus:border-primary w-full" id="inputProfilePicture" type="file" name="profile_picture">
+                    <input class="form-control mb-4 border-gray-300 rounded-md shadow-sm h-10 focus:ring-primary focus:border-primary w-full" id="inputProfilePicture" type="file" name="profile_picture">
                     <button class="bg-primary text-white px-4 py-2 rounded-md shadow-md hover:bg-primary-dark transition duration-300 w-full" type="submit">Upload new image</button>
                 </form>
-                <div class="mt-8">
+                <div class="mt-6">
                     <a href="{{ route('profile') }}" class="inline-flex items-center text-primary font-semibold hover:text-primary-dark transition duration-300">
-                        <i class="fa-solid fa-arrow-left mr-2"></i>
-                        Back
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Back
                     </a>
                 </div>
             </div>
         </div>
 
         <!-- Account Details -->
-        <div class="w-full md:w-3/4 px-4">
-            <div class="bg-white shadow-lg rounded-xl">
+        <div class="w-full md:w-2/3 px-4">
+            <div class="bg-white shadow-xl rounded-lg">
                 <div class="px-6 py-4 border-b border-gray-200">
                     <h3 class="text-xl font-semibold text-gray-800">Account Details</h3>
                 </div>
@@ -113,8 +111,6 @@
                         <!-- Submit Button -->
                         <button class="bg-primary text-white px-6 py-2 rounded-md shadow-md hover:bg-primary-dark transition duration-300 w-full" type="submit">Save changes</button>
                     </form>
-                    
-                    
                 </div>
             </div>
         </div>

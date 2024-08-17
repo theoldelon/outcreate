@@ -2,13 +2,14 @@
 
 @section('content')
 <div class="container mx-auto px-4 mt-24">
-        <!-- Navigation -->
-        <nav class="flex space-x-6 mb-6 border-b border-gray-200 pb-2">
-            <a class="text-gray-600 hover:text-primary font-semibold transition duration-300" href="#">Profile</a>
-            <a class="text-gray-600 hover:text-primary font-semibold transition duration-300" href="#">Billing</a>
-            <a class="text-gray-600 hover:text-primary font-semibold transition duration-300" href="#">Security</a>
-            <a class="text-gray-600 hover:text-primary font-semibold transition duration-300" href="#">Notifications</a>
-        </nav>
+    <!-- Navigation -->
+    <nav class="flex space-x-6 mb-6 border-b border-gray-200 pb-2">
+        <a class="text-gray-600 hover:text-primary font-semibold transition duration-300" href="#">Profile</a>
+        <a class="text-gray-600 hover:text-primary font-semibold transition duration-300" href="#">Billing</a>
+        <a class="text-gray-600 hover:text-primary font-semibold transition duration-300" href="#">Security</a>
+        <a class="text-gray-600 hover:text-primary font-semibold transition duration-300" href="#">Notifications</a>
+    </nav>
+    
     <!-- Profile Overview -->
     <div class="flex flex-wrap -mx-4">
         <!-- Profile Picture and Basic Info -->
@@ -23,23 +24,21 @@
                         </span>
                     </div>
                     <h2 class="text-3xl font-bold text-gray-800 mb-2">{{ auth()->user()->name }}</h2>
-                    <p class="text-gray-500 text-sm mb-4">{{ auth()->user()->title ?? 'Freelancer' }}</p>
-                    <a href="{{ route('profile.edit') }}" class="bg-primary text-white px-6 py-3 rounded-full shadow-lg hover:bg-primary-dark transition duration-300 flex items-center justify-center">
+                    <p class="text-gray-500 text-sm mb-4">{{ auth()->user()->title ?? 'Client' }}</p>
+                    <a href="#" class="bg-primary text-white px-6 py-3 rounded-full shadow-lg hover:bg-primary-dark transition duration-300 flex items-center justify-center">
                         <i class="fa-solid fa-pencil-alt mr-2"></i> Edit Profile
                     </a>
-                    
                 </div>
             </div>
         </div>
-        
 
         <!-- Profile Details and Stats -->
         <div class="w-full md:w-3/4 px-4 mb-8">
             <div class="bg-white shadow-lg rounded-lg">
                 <div class="flex flex-wrap p-6 border-b border-gray-200">
-                    <!-- Freelancer Details -->
+                    <!-- Client Details -->
                     <div class="w-full lg:w-1/2 mb-4 lg:mb-0">
-                        <h3 class="text-lg font-semibold mb-4">Freelancer Details</h3>
+                        <h3 class="text-lg font-semibold mb-4">Client Details</h3>
                         <div class="space-y-4 text-gray-700">
                             <p><strong>Username:</strong> {{ auth()->user()->username }}</p>
                             <p><strong>Full Name:</strong> {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</p>
@@ -51,12 +50,13 @@
                             <p><strong>Hourly Rate:</strong> $50/hr</p>
                         </div>
                     </div>
-                    <!-- Skills -->
+                    
+                    <!-- Client Preferences -->
                     <div class="w-full lg:w-1/2">
-                        <h3 class="text-lg font-semibold mb-4">Skills</h3>
+                        <h3 class="text-lg font-semibold mb-4">Client Preferences</h3>
                         <div class="space-y-2">
-                            @foreach (['Web Development', 'Graphic Design', 'SEO'] as $skill)
-                            <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">{{ $skill }}</span>
+                            @foreach (['Prefer remote work', 'Strong focus on UX/UI design', 'Flexible with deadlines'] as $preference)
+                            <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">{{ $preference }}</span>
                             @endforeach
                         </div>
                     </div>

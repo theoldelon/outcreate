@@ -133,118 +133,115 @@
 </head>
 <body class="bg-gray-300 text-gray-800">
     <!-- Navbar -->
-   <nav class="bg-gray-900 text-light py-4 px-6 fixed top-0 left-0 right-0 z-50 shadow-lg bg-opacity-75">
-    <div class="container mx-auto flex items-center justify-between">
-        <!-- Logo Section -->
-        <div class="logo flex items-center">
-            <a href="{{ url('/') }}" class="flex items-center text-white text-2xl font-semibold">
-                <img src="{{ asset('images/outcreate-logo.jpeg') }}" alt="OUTCREATE Logo" class="h-10 w-10 rounded-full mr-3 object-cover">
-                <span>OutCreate</span>
-            </a>
-        </div>
+    <nav class="bg-gray-900 text-light py-4 px-6 fixed top-0 left-0 right-0 z-50 shadow-lg bg-opacity-75">
+        <div class="container mx-auto flex items-center justify-between">
+            
+            <!-- Logo Section -->
+            <div class="logo flex items-center">
+                @auth
+                            <!-- Sidebar Toggle Button -->
+        <button id="sidebarToggle" class="fixed top-4 left-4 z-50 text-light p-3 rounded-lg shadow-lg hover:bg-secondary transition-colors duration-300">
+            <i class="fas fa-bars fa-lg"></i>
+        </button>
 
-        @auth
-        <!-- Navigation Links -->
-        <div class="hidden md:flex space-x-6 font-semibold">
-            <a href="{{ url('/jobs') }}" class="{{ request()->is('jobs*') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300 flex items-center">
-                <i class="fas fa-briefcase mr-2"></i> Browse Job
-            </a>
-            <a href="{{ url('/services') }}" class="{{ request()->is('services*') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300 flex items-center">
-                <i class="fas fa-concierge-bell mr-2"></i> Services
-            </a>
-            <div x-data="{ open: false }" class="relative">
-                <button @click="open = !open" class="{{ request()->is('reviews*') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300 flex items-center">
-                    <i class="fas fa-star mr-2"></i> Reviews <i :class="{'fa-angle-down': !open, 'fa-angle-up': open}" class="fas ml-2"></i>
-                </button>
-                <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-50">
-                    <a href="{{ url('/reviews/latest') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 flex items-center">
-                        <i class="fas fa-newspaper mr-2"></i> Latest Reviews
-                    </a>
-                    <a href="{{ url('/reviews/top') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 flex items-center">
-                        <i class="fas fa-trophy mr-2"></i> Top Reviews
-                    </a>
-                </div>
-            </div>
-            <a href="{{ url('/contact') }}" class="{{ request()->is('contact') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300 flex items-center">
-                <i class="fas fa-envelope mr-2"></i> Contact
-            </a>
-        </div>
-        @else
-        <div class="hidden md:flex space-x-6 font-semibold">
-            <a href="{{ url('/jobs') }}" class="{{ request()->is('jobs*') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300 flex items-center">
-                <i class="fas fa-briefcase mr-2"></i> Browse Job
-            </a>
-            <a href="{{ url('/services') }}" class="{{ request()->is('services*') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300 flex items-center">
-                <i class="fas fa-concierge-bell mr-2"></i> Services
-            </a>
-            <div x-data="{ open: false }" class="relative">
-                <button @click="open = !open" class="{{ request()->is('reviews*') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300 flex items-center">
-                    <i class="fas fa-star mr-2"></i> Reviews <i :class="{'fa-angle-down': !open, 'fa-angle-up': open}" class="fas ml-2"></i>
-                </button>
-                <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-50">
-                    <a href="{{ url('/reviews/latest') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 flex items-center">
-                        <i class="fas fa-newspaper mr-2"></i> Latest Reviews
-                    </a>
-                    <a href="{{ url('/reviews/top') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 flex items-center">
-                        <i class="fas fa-trophy mr-2"></i> Top Reviews
-                    </a>
-                </div>
-            </div>
-            <a href="{{ url('/contact') }}" class="{{ request()->is('contact') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300 flex items-center">
-                <i class="fas fa-envelope mr-2"></i> Contact
-            </a>
-        </div>
-        @endauth
+        @include('components.sidebar')
 
-        <!-- Conditional Buttons -->
-        <div class="hidden md:flex items-center space-x-4 font-semibold">
-            @auth
+                @endauth
+                <a href="{{ url('/') }}" class="flex items-center text-white text-2xl font-semibold">
+                    <img src="{{ asset('images/outcreate-logo.jpeg') }}" alt="OUTCREATE Logo" class="h-10 w-10 rounded-full mr-3 object-cover">
+                    <span>OutCreate</span>
+                </a>
+            </div>
+    
+            <!-- Navigation Links -->
+            <div class="hidden md:flex space-x-6 font-semibold">
+                <a href="{{ url('/browse-jobs') }}" class="{{ request()->is('jobs*') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300 flex items-center">
+                    <i class="fas fa-briefcase mr-2"></i> Browse Job
+                </a>
+                <a href="{{ url('/services') }}" class="{{ request()->is('services*') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300 flex items-center">
+                    <i class="fas fa-concierge-bell mr-2"></i> Services
+                </a>
                 <div x-data="{ open: false }" class="relative">
-                    <button @click="open = !open" class="flex items-center text-white hover:text-gray-300 focus:outline-none">
-                        <i class="fas fa-user-circle mr-2"></i> Hi, {{ auth()->user()->name }}!
-                        <i :class="{'fa-angle-down': !open, 'fa-angle-up': open}" class="fas ml-2"></i>
+                    <button @click="open = !open" class="{{ request()->is('reviews*') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300 flex items-center">
+                        <i class="fas fa-star mr-2"></i> Reviews <i :class="{'fa-angle-down': !open, 'fa-angle-up': open}" class="fas ml-2"></i>
                     </button>
-                    
                     <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-50">
-                        <a href="{{ route('profile') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 flex items-center">
-                            <i class="fa-solid fa-circle-user mr-2"></i> View Profile
-                        </a>                            
-                        <a href="{{ url('/dashboard') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 flex items-center">
-                            <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
+                        <a href="{{ url('/reviews/latest') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 flex items-center">
+                            <i class="fas fa-newspaper mr-2"></i> Latest Reviews
                         </a>
-                        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 flex items-center">
-                            <i class="fas fa-sign-out-alt mr-2"></i> Log out
+                        <a href="{{ url('/reviews/top') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 flex items-center">
+                            <i class="fas fa-trophy mr-2"></i> Top Reviews
                         </a>
                     </div>
                 </div>
-            @else
-                <div x-data="{ open: false }" class="relative">
-                    <button @click="open = !open" class="flex items-center text-white hover:text-gray-300 focus:outline-none">
-                        <i class="fas fa-user mr-2"></i> Account
-                        <i :class="{'fa-angle-down': !open, 'fa-angle-up': open}" class="fas ml-2"></i>
-                    </button>
-                    
-                    <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-50">
-                        <a href="{{ url('/login') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 flex items-center">
-                            <i class="fas fa-sign-in-alt mr-2"></i> Log in
+                <a href="{{ url('/contact') }}" class="{{ request()->is('contact') ? 'border-b-2 border-blue-300 text-white' : 'text-white' }} hover:text-gray-300 flex items-center">
+                    <i class="fas fa-envelope mr-2"></i> Contact
+                </a>
+            </div>
+    
+            <!-- Conditional Buttons -->
+            <div class="hidden md:flex items-center space-x-4 font-semibold">
+                @auth
+                
+                    <div x-data="{ open: false }" class="relative">
+                        <button @click="open = !open" class="flex items-center text-white hover:text-gray-300 focus:outline-none">
+                            <i class="fas fa-user-circle mr-2"></i> Hi, {{ auth()->user()->name }}!
+                            <i :class="{'fa-angle-down': !open, 'fa-angle-up': open}" class="fas ml-2"></i>
+                        </button>
+                        
+                        <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-50">
+                            @if (auth()->user()->role == 'freelancer')
+                            <a href="{{ route('profile.show-freelancer') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 flex items-center">
+                                <i class="fa-solid fa-circle-user mr-2"></i> Freelancer`s Profile
+                            </a>
+                        @else
+                            <a href="{{ route('profile.show-client') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 flex items-center">
+                                <i class="fa-solid fa-circle-user mr-2"></i> Client`s Profile
+                            </a>
+                        @endif
+                        <a href="" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 flex items-center">
+                            <i class="fas fa-bell mr-2"></i> Notifications
                         </a>
-                        <a href="{{ url('/register') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 flex items-center">
-                            <i class="fas fa-user-plus mr-2"></i> Register
-                        </a>
+                        
+                            <a href="#" @click.prevent="$refs.logoutForm.submit();" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 flex items-center">
+                                <i class="fas fa-sign-out-alt mr-2"></i> Log out
+                            </a>
+                        </div>
+                        
+                        <!-- Hidden logout form -->
+                        <form x-ref="logoutForm" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </div>
-                </div>
-            @endauth
+                @else
+                    <div x-data="{ open: false }" class="relative">
+                        <button @click="open = !open" class="flex items-center text-white hover:text-gray-300 focus:outline-none">
+                            <i class="fas fa-user mr-2"></i> Account
+                            <i :class="{'fa-angle-down': !open, 'fa-angle-up': open}" class="fas ml-2"></i>
+                        </button>
+                        
+                        <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-50">
+                            <a href="{{ url('/login') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 flex items-center">
+                                <i class="fas fa-sign-in-alt mr-2"></i> Log in
+                            </a>
+                            <a href="{{ url('/register') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-200 flex items-center">
+                                <i class="fas fa-user-plus mr-2"></i> Register
+                            </a>
+                        </div>
+                    </div>
+                @endauth
+            </div>
+            
+    
+            <!-- Mobile Menu Toggle -->
+            <div class="md:hidden flex items-center">
+                <button class="text-white">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
-
-        <!-- Mobile Menu Toggle -->
-        <div class="md:hidden flex items-center">
-            <button class="text-white">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </div>
-</nav>
-
+    </nav>
+    
     
     
     <!-- Main Content -->
